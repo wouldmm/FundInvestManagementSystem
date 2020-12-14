@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'fund_manage:fund_rough_list' %}">基金总表管理</a><br>
+<a href="{% url 'fund_manage:fund_detail_list' %}">基金详表管理</a><br>
+<a href="{% url 'fund_manage:fund_managers_list' %}">基金经理管理</a><br>
+<a href="{% url 'fund_manage:fund_individual_list' %}">基金单表管理</a><br>
+
+{% endblock %}

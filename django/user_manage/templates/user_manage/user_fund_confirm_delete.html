@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'user_manage:user_fund_list' %}">用户收藏基金管理-CBV</a>: 删除?</h2>
+
+<form method="post">{% csrf_token %}
+    对于账户 <br>
+    "{{ user_fund.user_id }}" <br>
+    您是否确认要删除收藏基金 <br>
+    "{{ user_fund.fund_id }}" ?<br>
+    <input type="submit" value="删除" />
+</form>
+
+{% endblock %}

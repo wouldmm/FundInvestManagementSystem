@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'fund_manage:fund_rough_list' %}">基金总表管理-CBV</a>: 删除?</h2>
+
+<form method="post">{% csrf_token %}
+    您是否确认要删除 "{{ fund_id }}" ?<br>
+    <input type="submit" value="删除" />
+</form>
+
+{% endblock %}

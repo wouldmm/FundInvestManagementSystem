@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'fund_manage:fund_managers_list' %}">基金经理管理-CBV</a>: 编辑</h2>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="提交" />
+</form>
+
+{% endblock %}

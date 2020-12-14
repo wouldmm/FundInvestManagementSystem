@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'user_manage:user_news_list' %}">用户收藏新闻管理-CBV</a>: 编辑</h2>
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="提交" />
+</form>
+
+{% endblock %}

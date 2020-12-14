@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'fund_manage:fund_index' %}">返回</a></h2>
+
+<div class="container">
+    <h3>基金详表管理</h3>
+    <a href="{% url 'fund_manage:fund_detail_create' %}">新增</a>
+    <table class="table table-hover">
+        <tr>
+            <td>基金代码</td>
+            <td>基金名称</td>
+            <td>公司</td>
+            <td>成立日期</td>
+            <td>基金经理名字</td>
+            <td>管理人</td>
+            <td>风险等级</td>
+            <td>规模</td>
+            <td>累计分红</td>
+            <td>资产配置（股票）</td>
+            <td>资产配置（债券）</td>
+            <td>资产配置（银行）</td>
+            <td>资产配置（其他）</td>
+            <td>评级1</td>
+            <td>评级2</td>
+            <td>评级3</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% for fund_detail in fund_details %}
+        <tr id={{ forloop.counter }}>
+            <td>{{ fund_detail.fund_id }}</td>
+            <td>{{ fund_detail.fund_name }}</td>
+            <td>{{ fund_detail.company }}</td>
+            <td>{{ fund_detail.incorporation_of_date }}</td>
+            <td>{{ fund_detail.fund_manager }}</td>
+            <td>{{ fund_detail.management_company }}</td>
+            <td>{{ fund_detail.risk }}</td>
+            <td>{{ fund_detail.scope }}</td>
+            <td>{{ fund_detail.accumulated_dividends }}</td>
+            <td>{{ fund_detail.shares }}</td>
+            <td>{{ fund_detail.bonds }}</td>
+            <td>{{ fund_detail.banks }}</td>
+            <td>{{ fund_detail.others }}</td>
+            <td>{{ fund_detail.LV1 }}</td>
+            <td>{{ fund_detail.LV2 }}</td>
+            <td>{{ fund_detail.LV3 }}</td>
+            <td><a href="{% url 'fund_manage:fund_detail_edit' fund_detail.id %}">编辑</a></td>
+            <td><a href="{% url 'fund_manage:fund_detail_delete' fund_detail.id %}">删除</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    
+</div>
+
+
+
+
+{% endblock %}

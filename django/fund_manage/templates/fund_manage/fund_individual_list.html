@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'fund_manage:fund_index' %}">返回</a></h2>
+
+<div class="container">
+    <h3>基金单表管理</h3>
+    <a href="{% url 'fund_manage:fund_individual_create' %}">新增</a>
+    <table class="table table-hover">
+        <tr>
+            <td>基金代码</td>
+            <td>选择日期</td>
+            <td>单位净值</td>
+            <td>累计净值</td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% for fund_individual in fund_individuals %}
+        <tr id={{ forloop.counter }}>
+            <td>{{ fund_individual.fund_id }}</td>
+            <td>{{ fund_individual.date }} </td>
+            <td>{{ fund_individual.NAV }} </td>
+            <td>{{ fund_individual.accuumulated_net }}</td>
+            <td><a href="{% url 'fund_manage:fund_individual_edit' fund_individual.id %}">编辑</a></td>
+            <td><a href="{% url 'fund_manage:fund_individual_delete' fund_individual.id %}">删除</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    
+</div>
+
+
+
+
+{% endblock %}
