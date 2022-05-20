@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2><a href="{% url 'user_manage:user_news_list' %}">用户收藏新闻管理-CBV</a>: 删除?</h2>
+
+<form method="post">{% csrf_token %}
+    对于用户 <br>
+    "{{ user_news.user_id }}" <br>
+    您是否确认要删除收藏新闻 <br>
+    "{{ user_news.news_name }}" ?<br>
+    <input type="submit" value="删除" />
+</form>
+
+{% endblock %}
